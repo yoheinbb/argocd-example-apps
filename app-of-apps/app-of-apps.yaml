@@ -11,6 +11,6 @@ spec:
   source:
     path: app-of-apps
     repoURL: https://github.com/yoheinbb/argocd-example-apps.git
-    targetRevision: main
+    targetRevision: HEAD
   syncPolicy:
     automated: {}
