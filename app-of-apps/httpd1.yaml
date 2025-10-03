@@ -10,6 +10,6 @@ spec:
   source:
     path: httpd1
     repoURL: https://github.com/yoheinbb/argocd-example-apps.git
-    targetRevision: main
+    targetRevision: HEAD
   syncPolicy:
     automated: {}
