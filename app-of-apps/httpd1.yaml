@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: httpd1
+    path: app-of-apps/httpd1
     repoURL: https://github.com/yoheinbb/argocd-example-apps.git
     targetRevision: HEAD
   syncPolicy:
