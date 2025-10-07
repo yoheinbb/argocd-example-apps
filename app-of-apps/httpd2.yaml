@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: httpd2
+  annotations:
+    argocd.argoproj.io/sync-wave: "100" 
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: app-of-apps/httpd2
+    repoURL: https://github.com/yoheinbb/argocd-example-apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
