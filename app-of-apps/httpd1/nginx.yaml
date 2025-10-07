@@ -2,7 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
-  argocd.argoproj.io/sync-wave: "999" 
+  annotations:
+    argocd.argoproj.io/sync-wave: "999" 
 spec:
   selector:
     matchLabels:
