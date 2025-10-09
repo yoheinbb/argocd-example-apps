@@ -15,4 +15,4 @@ spec:
     repoURL: https://github.com/yoheinbb/argocd-example-apps.git
     targetRevision: HEAD
   syncPolicy:
-    automated: {}
+    automated: false
