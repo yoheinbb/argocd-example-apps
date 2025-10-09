@@ -5,6 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "999" 
     nbbtest: "1"
+    argocd.argoproj.io/reconcile-timeout: "86400s"
 spec:
   destination:
     namespace: default
