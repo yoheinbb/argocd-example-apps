@@ -4,8 +4,7 @@ metadata:
   name: httpd
   annotations:
     argocd.argoproj.io/sync-wave: "999" 
-    nbbtest: "1"
-    argocd.argoproj.io/reconcile-timeout: "86400s"
+    nbbtest: "2"
 spec:
   destination:
     namespace: default
@@ -15,6 +14,4 @@ spec:
     path: app-of-apps/httpd1
     repoURL: https://github.com/yoheinbb/argocd-example-apps.git
     targetRevision: HEAD
-  syncPolicy:
-    automated:
-      enabled: false
+  syncPolicy: {}
