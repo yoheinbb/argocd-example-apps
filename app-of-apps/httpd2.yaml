@@ -14,4 +14,3 @@ spec:
     path: app-of-apps/httpd2
     repoURL: https://github.com/yoheinbb/argocd-example-apps.git
     targetRevision: HEAD
-  syncPolicy: {}
