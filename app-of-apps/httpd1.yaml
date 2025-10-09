@@ -4,6 +4,7 @@ metadata:
   name: httpd
   annotations:
     argocd.argoproj.io/sync-wave: "999" 
+    nbbtest: "1"
 spec:
   destination:
     namespace: default
