@@ -5,7 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "100" 
     nbbtest: "5"
-    argocd.argoproj.io/refresh: "always"
+    argocd.argoproj.io/skip-reconcile: "true"
 spec:
   destination:
     namespace: default
