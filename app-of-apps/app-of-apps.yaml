@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: app-of-apps
   namespace: argocd
-  annotation:
+  annotations:
     nbb: "5"
 spec:
   destination:
