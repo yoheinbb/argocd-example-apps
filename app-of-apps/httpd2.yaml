@@ -5,6 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "100" 
     nbbtest: "5"
+    argocd.argoproj.io/refresh: "always"
 spec:
   destination:
     namespace: default
