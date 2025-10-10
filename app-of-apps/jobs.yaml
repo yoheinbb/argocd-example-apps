@@ -22,6 +22,15 @@ spec:
         args:
         # 実行したい ArgocD CLI コマンド
         - |
-          # 子 Application の同期を実行 (Out of Sync のものだけを同期)
-          argocd app sync httpd --grpc-web --apply-out-of-sync-only --revision HEAD
+          # 権限は ArgocD Application Controller の SA を使用
+          # ArgocD Server の内部サービスアドレスと認証情報を指定
+          ARGOCD_SERVER="argocd-server.argocd.svc.cluster.local" # ArgocD が 'argocd' Namespace にある場合
+          
+          argocd app sync httpd \
+            --server $ARGOCD_SERVER \
+            --insecure \ # 内部通信のため、証明書の検証をスキップ
+            --auth-token $(cat /var/run/secrets/kubernetes.io/serviceaccount/token) \ # ServiceAccount トークンを使用
+            --grpc-web \
+            --apply-out-of-sync-only \
+            --revision HEAD
       restartPolicy: OnFailure
