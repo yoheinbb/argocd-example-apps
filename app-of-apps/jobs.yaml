@@ -1,0 +1,27 @@
+# sync-child-app.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sync-child-app-job-httpd1 # 実行ごとにユニークな名前にするためテンプレート化
+  annotations:
+    # 🌟 ポイント 1: Hook の設定
+    argocd.argoproj.io/hook: PreSync
+    # Hook の実行後に Job を削除
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    # 🌟 ポイント 2: Hook の実行対象
+    argocd.argoproj.io/sync-wave: "10" # 親の App リソースが適用された後 (Sync Wave 0 など) に実行されるように設定
+spec:
+  template:
+    spec:
+      serviceAccountName: argocd-application-controller # ArgocD の ServiceAccount を使用
+      containers:
+      - name: argocd-cli
+        # ArgocD CLI が含まれるイメージを使用 (例: quay.io/argoproj/argocd:v2.10.0 のような ArgocD のバージョンに合わせたもの)
+        image: quay.io/argoproj/argocd:v2.10.0 
+        command: ["/bin/sh", "-c"]
+        args:
+        # 実行したい ArgocD CLI コマンド
+        - |
+          # 子 Application の同期を実行 (Out of Sync のものだけを同期)
+          argocd app sync httpd1 --grpc-web --apply-out-of-sync-only --revision HEAD
+      restartPolicy: OnFailure
