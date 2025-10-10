@@ -16,4 +16,4 @@ spec:
     targetRevision: HEAD
   syncPolicy:
     automated: 
-      enabled: true
+      enabled: false
