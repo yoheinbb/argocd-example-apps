@@ -4,7 +4,7 @@ metadata:
   name: httpd
   annotations:
     argocd.argoproj.io/sync-wave: "999" 
-    nbbtest: "8"
+    nbbtest: "10"
     argocd.argoproj.io/skip-reconcile: "true"
 spec:
   destination:
