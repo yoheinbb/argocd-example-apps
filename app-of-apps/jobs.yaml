@@ -29,6 +29,7 @@ spec:
           argocd app sync httpd \
             --server $ARGOCD_SERVER \
             --insecure \
+            --auth-token $(cat /var/run/secrets/kubernetes.io/serviceaccount/token) \
             --grpc-web \
             --apply-out-of-sync-only \
             --revision HEAD
