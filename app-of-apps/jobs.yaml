@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: sync-child-app-job-httpd1 # 実行ごとにユニークな名前にするためテンプレート化
+  name: sync-child-app-job-httpd # 実行ごとにユニークな名前にするためテンプレート化
   annotations:
     # 🌟 ポイント 1: Hook の設定
     argocd.argoproj.io/hook: PreSync
@@ -23,5 +23,5 @@ spec:
         # 実行したい ArgocD CLI コマンド
         - |
           # 子 Application の同期を実行 (Out of Sync のものだけを同期)
-          argocd app sync httpd1 --grpc-web --apply-out-of-sync-only --revision HEAD
+          argocd app sync httpd --grpc-web --apply-out-of-sync-only --revision HEAD
       restartPolicy: OnFailure
