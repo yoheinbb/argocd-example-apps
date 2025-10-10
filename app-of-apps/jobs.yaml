@@ -28,6 +28,7 @@ spec:
           
           argocd app sync httpd \
             --server $ARGOCD_SERVER \
+            --insecure 
             --grpc-web \
             --apply-out-of-sync-only \
             --revision HEAD
