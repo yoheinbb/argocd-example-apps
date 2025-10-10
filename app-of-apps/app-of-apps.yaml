@@ -4,7 +4,7 @@ metadata:
   name: app-of-apps
   namespace: argocd
   annotations:
-    nbb: "10"
+    nbb: "11"
 spec:
   destination:
     namespace: argocd
